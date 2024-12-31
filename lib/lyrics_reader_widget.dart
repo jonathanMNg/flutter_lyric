@@ -349,27 +349,28 @@ class LyricReaderState extends State<LyricsReader>
 
   ///support touch event
   Widget buildTouchReader(child) {
-    return GestureDetector(
-      onVerticalDragEnd: handleDragEnd,
-      onTap: widget.onTap,
-      onTapDown: (event) {
-        disposeSelectLineDelay();
-        disposeFiling();
-        isDrag = true;
-      },
-      onTapUp: (event) {
-        isDrag = false;
-        resumeSelectLineOffset();
-      },
-      onVerticalDragStart: (event) {
-        disposeFiling();
-        disposeSelectLineDelay();
-        setSelectLine(true);
-      },
-      onVerticalDragUpdate: (event) =>
-          {lyricPaint.lyricOffset += event.primaryDelta ?? 0},
-      child: child,
-    );
+    return child;
+    // return GestureDetector(
+    //   onVerticalDragEnd: handleDragEnd,
+    //   onTap: widget.onTap,
+    //   onTapDown: (event) {
+    //     disposeSelectLineDelay();
+    //     disposeFiling();
+    //     isDrag = true;
+    //   },
+    //   onTapUp: (event) {
+    //     isDrag = false;
+    //     resumeSelectLineOffset();
+    //   },
+    //   onVerticalDragStart: (event) {
+    //     disposeFiling();
+    //     disposeSelectLineDelay();
+    //     setSelectLine(true);
+    //   },
+    //   onVerticalDragUpdate: (event) =>
+    //       {lyricPaint.lyricOffset += event.primaryDelta ?? 0},
+    //   child: child,
+    // );
   }
 
   handleDragEnd(DragEndDetails event) {
